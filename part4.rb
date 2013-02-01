@@ -5,23 +5,7 @@ class Dessert
     @name = name
     @calories = calories
   end
-  
-#  def name=(name)
-#    @name = name
-#  end
-#  
-#  def calories=(calories)
-#    @calories = calories
-#  end
-#  
-#  def name
-#    @name
-#  end
-#  
-#  def calories
-#    @calories
-#  end
-#  
+
   def healthy?
     if (@calories < 200)
       return true
@@ -41,16 +25,8 @@ class JellyBean < Dessert
   def initialize(name, calories, flavor)
     super(name, calories)
     @flavor = flavor
-  end
-  
-#  def flavor=(flavor)
-#    @flavor = flavor
-#  end
-#  
-#  def flavor
-#    @flavor
-#  end
-  
+  end 
+ 
   def delicious?
     if (@flavor == "black licorice")
       return false
@@ -60,16 +36,16 @@ class JellyBean < Dessert
   end
 end
 
-nombre = "test"
-calorias = 190
-sabor = "coc"
-a = JellyBean.new(nombre, calorias, sabor)
-
-print a.flavor()
-
-
-##if (delicious?(a.flavor))
-##  print "rico"
-##else
-##  print "esta malo"
-##end
+#nombre = "test"
+#calorias = 190
+#sabor = "black licorice"
+#a = JellyBean.new(nombre, calorias, sabor)
+#
+#print a.flavor()
+#
+#
+#if (a.delicious?)
+#  print "\nrico"
+#else
+#  print "\nesta malo"
+#end
