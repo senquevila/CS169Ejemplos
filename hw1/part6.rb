@@ -25,7 +25,7 @@ end
 
 module Enumerable
   def palindrome?    
-     str = self.flatten.to_s
+     str = self.flatten.join
      str = str.gsub(/\W/, '').downcase
      str == str.reverse
    end
@@ -33,4 +33,4 @@ end
 
 #print 5.dollar.in(:euro)
 #print "ana".palindrome?
-print ['ah', 'a', 'a', 'ha'].palindrome?
+#print [[2,1], 'a', 'a', [1,2]].palindrome?
