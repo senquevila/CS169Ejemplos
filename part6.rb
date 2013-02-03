@@ -1,5 +1,5 @@
 class Numeric
-  @@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019}
+  @@currencies = {'yen' => 0.013, 'euro' => 1.292, 'rupee' => 0.019, 'dollar' => 1.0}
   def method_missing(method_id)
     singular_currency = method_id.to_s.gsub( /s$/, '')
     if @@currencies.has_key?(singular_currency)
@@ -8,12 +8,29 @@ class Numeric
       super
     end
   end
+  
+  def in(currency_name)
+    currency_name = currency_name.to_s.gsub(/s$/, '')
+    self / @@currencies[currency_name] 
+  end 
 end
 
 class String
-  # YOUR CODE HERE
+  def palindrome?    
+    return unless String === self
+    str = self.gsub(/\W/, '').downcase
+    str == str.reverse
+  end
 end
 
 module Enumerable
-  # YOUR CODE HERE
+  def palindrome?    
+     str = self.flatten.to_s
+     str = str.gsub(/\W/, '').downcase
+     str == str.reverse
+   end
 end
+
+#print 5.dollar.in(:euro)
+#print "ana".palindrome?
+print ['ah', 'a', 'a', 'ha'].palindrome?

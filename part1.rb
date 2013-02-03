@@ -4,6 +4,7 @@
 
 
 def palindrome?(str)
+  return unless String === str
   str = str.gsub(/\W/, '').downcase
   str == str.reverse
 end
@@ -26,6 +27,15 @@ def count_words(str)
 	end
   end
   return hash
+end
+
+#mejor version
+def count_words(string)
+  return unless String === string
+  counter = Hash.new(0)
+  string.downcase.split(/\W*\b\W*/).
+    each{|w| counter[w] += 1}
+  counter
 end
 
 
