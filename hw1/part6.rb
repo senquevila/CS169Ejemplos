@@ -25,12 +25,13 @@ end
 
 module Enumerable
   def palindrome?    
-     str = self.flatten.join
-     str = str.gsub(/\W/, '').downcase
-     str == str.reverse
+    return false unless self.respond_to?(:each)
+    str = self.each.collect do |x| x end.to_s.gsub(/\W?/,'').downcase
+    return str == str.reverse
    end
 end
 
 #print 5.dollar.in(:euro)
 #print "ana".palindrome?
 #print [[2,1], 'a', 'a', [1,2]].palindrome?
+#print %w {ant bear leo}
